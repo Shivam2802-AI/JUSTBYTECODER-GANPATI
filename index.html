@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JustByte Coder चा राजा 🚩</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Georgia,"Noto Serif Devanagari",serif;
+    background:#080302;
+    color:#fff1cf;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    background:
+        radial-gradient(circle at 50% 0%,#652400 0%,transparent 38%),
+        radial-gradient(circle at 10% 80%,#351000 0%,transparent 30%),
+        #080302;
+}
+
+#stars{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+}
+
+/* NAVBAR */
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:100;
+    padding:15px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(8,3,2,.9);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,214,107,.2);
+}
+
+.logo{
+    color:#ffd66b;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.nav-links{
+    display:flex;
+    gap:18px;
+}
+
+.nav-links a{
+    color:#ffe7ae;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.nav-links a:hover{
+    color:#ffb300;
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    padding:120px 20px 60px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.hero-content{
+    width:min(1050px,100%);
+}
+
+.eyebrow{
+    color:#ffd66b;
+    letter-spacing:3px;
+    margin-bottom:18px;
+    font-size:14px;
+}
+
+h1{
+    font-size:clamp(40px,7vw,85px);
+    line-height:1.05;
+    margin-bottom:15px;
+    text-shadow:
+        0 0 15px rgba(255,166,0,.35),
+        0 0 45px rgba(255,166,0,.25);
+}
+
+.subtitle{
+    font-size:20px;
+    color:#ffe3a3;
+}
+
+.photo-frame{
+    width:min(500px,94vw);
+    margin:35px auto;
+    padding:8px;
+    border-radius:30px;
+    background:linear-gradient(
+        135deg,
+        #fff0a0,
+        #9c5000,
+        #ffd65b,
+        #552400
+    );
+    box-shadow:
+        0 0 35px rgba(255,145,0,.35),
+        0 0 100px rgba(255,145,0,.15);
+}
+
+.hero-image{
+    display:block;
+    width:100%;
+    border-radius:22px;
+}
+
+.pills{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:20px;
+}
+
+.pill{
+    padding:9px 15px;
+    border-radius:50px;
+    border:1px solid rgba(255,214,107,.3);
+    background:rgba(255,170,0,.08);
+}
+
+/* BUTTON */
+.btn{
+    border:none;
+    padding:14px 23px;
+    margin:6px;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:bold;
+    color:#2a1000;
+    background:linear-gradient(135deg,#ffe58b,#ff9800);
+    box-shadow:0 8px 30px rgba(255,143,0,.25);
+    transition:.25s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.btn-outline{
+    background:transparent;
+    color:#ffd66b;
+    border:1px solid rgba(255,214,107,.5);
+}
+
+/* SECTIONS */
+section{
+    max-width:1200px;
+    margin:auto;
+    padding:90px 6%;
+}
+
+.section-title{
+    text-align:center;
+    color:#ffd66b;
+    font-size:clamp(32px,5vw,50px);
+    margin-bottom:15px;
+}
+
+.section-lead{
+    text-align:center;
+    max-width:850px;
+    margin:0 auto 35px;
+    color:#d9bd8b;
+    line-height:1.8;
+}
+
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:18px;
+}
+
+.card{
+    padding:25px;
+    border-radius:23px;
+    background:linear-gradient(
+        145deg,
+        rgba(255,190,70,.09),
+        rgba(255,255,255,.025)
+    );
+    border:1px solid rgba(255,214,107,.2);
+    box-shadow:0 20px 60px rgba(0,0,0,.4);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(255,214,107,.55);
+}
+
+.card h3{
+    color:#ffd66b;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#ead5aa;
+    line-height:1.8;
+}
+
+/* AARTI */
+.aarti-buttons{
+    text-align:center;
+}
+
+.aarti-display{
+    display:none;
+    margin:35px auto 0;
+    max-width:850px;
+    padding:30px;
+    border-radius:25px;
+    background:
+        radial-gradient(
+            circle at top,
+            #401804,
+            #100503 55%,
+            #070202
+        );
+    border:1px solid rgba(255,214,107,.4);
+    box-shadow:0 0 60px rgba(255,150,0,.18);
+}
+
+.aarti-display.active{
+    display:block;
+}
+
+.aarti-title{
+    text-align:center;
+    color:#ffd66b;
+    font-size:30px;
+    margin-bottom:25px;
+}
+
+.aarti-text{
+    white-space:pre-line;
+    text-align:center;
+    color:#ffe8bb;
+    line-height:2;
+    font-size:17px;
+}
+
+.close-aarti{
+    display:block;
+    margin:25px auto 0;
+}
+
+/* MEMBERS */
+.members{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    gap:13px;
+}
+
+.member{
+    padding:16px;
+    border-radius:17px;
+    text-align:center;
+    color:#ffe9bb;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,214,107,.2);
+    transition:.2s;
+}
+
+.member:hover{
+    transform:translateY(-4px);
+    border-color:#ffd66b;
+    background:rgba(255,170,0,.08);
+}
+
+/* VIDEO */
+.video-box{
+    width:min(1000px,100%);
+    margin:30px auto;
+    padding:8px;
+    border-radius:30px;
+    background:linear-gradient(
+        135deg,
+        #fff0a0,
+        #9c5000,
+        #ffd65b,
+        #552400
+    );
+    box-shadow:
+        0 0 35px rgba(255,145,0,.35),
+        0 0 100px rgba(255,145,0,.15);
+}
+
+.video-box video{
+    display:block;
+    width:100%;
+    max-height:650px;
+    border-radius:22px;
+    background:#000;
+}
+
+/* SIGNATURE */
+.signature-section{
+    text-align:center;
+    border-top:1px solid rgba(255,214,107,.15);
+}
+
+.signature-image{
+    display:block;
+    width:min(650px,95%);
+    margin:30px auto;
+    border-radius:18px;
+    box-shadow:0 0 50px rgba(255,160,0,.2);
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:35px;
+    color:#9d7c4c;
+    border-top:1px solid rgba(255,214,107,.15);
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+    .navbar{
+        flex-direction:column;
+        gap:8px;
+    }
+
+    .nav-links{
+        gap:10px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .nav-links a{
+        font-size:11px;
+    }
+
+    section{
+        padding:65px 5%;
+    }
+
+    .hero{
+        padding-top:150px;
+    }
+
+    .aarti-display{
+        padding:20px 15px;
+    }
+
+    .aarti-title{
+        font-size:25px;
+    }
+
+    .aarti-text{
+        font-size:15px;
+        line-height:1.8;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="stars"></canvas>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+    <div class="logo">
+        🚩 JustByte Coder चा राजा
+    </div>
+
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#bio">माहिती</a>
+        <a href="#aarti">आरती</a>
+        <a href="#members">मंडळ</a>
+        <a href="#darshan">दर्शन</a>
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+<header class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            श्री गणपती बाप्पा मोरया 🚩
+        </div>
+
+        <h1>
+            JustByte Coder चा राजा
+        </h1>
+
+        <div class="subtitle">
+            भक्ती • परंपरा • एकता • आनंद
+        </div>
+
+        <div class="photo-frame">
+
+            <img
+                src="images/ganpati.jpg"
+                class="hero-image"
+                alt="Ganpati Bappa"
+            >
+
+        </div>
+
+        <div class="pills">
+
+            <span class="pill">🪔 मंगलमूर्ती</span>
+            <span class="pill">🌺 भक्ती</span>
+            <span class="pill">✨ डिजिटल दर्शन</span>
+
+        </div>
+
+        <a href="#bio">
+            <button class="btn">
+                🙏 बाप्पांची माहिती
+            </button>
+        </a>
+
+        <a href="#darshan">
+            <button class="btn btn-outline">
+                ✨ गणपती दर्शन
+            </button>
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- BIO -->
+<section id="bio">
+
+    <h2 class="section-title">
+        🙏 गणपती बाप्पांची माहिती
+    </h2>
+
+    <p class="section-lead">
+        भगवान श्री गणेश हे बुद्धी,
+        ज्ञान, विवेक, समृद्धी आणि
+        शुभारंभाचे देव मानले जातात.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🌺 जन्मकथा</h3>
+            <p>
+                पौराणिक कथेनुसार माता पार्वतीने
+                गणेशाची निर्मिती केली.
+                भगवान शिवांनी गणेशाला गजमुख प्रदान केले
+                आणि त्यांना प्रथम पूजनीय होण्याचे
+                वरदान मिळाले.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🕉️ विविध नावे</h3>
+            <p>
+                गणेश, गणपती, विनायक, गजानन,
+                एकदंत, लंबोदर, वक्रतुंड,
+                सिद्धिविनायक आणि विघ्नहर्ता
+                अशी अनेक नावे आहेत.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📿 गणेश चतुर्थी</h3>
+            <p>
+                गणेश चतुर्थीमध्ये भक्त
+                गणेशमूर्तीची प्रतिष्ठापना करून
+                पूजा, आरती, भजन आणि
+                सांस्कृतिक कार्यक्रम साजरे करतात.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🌿 आध्यात्मिक महत्त्व</h3>
+            <p>
+                गणेशाचे मोठे मस्तक व्यापक विचारांचे,
+                मोठे कान ऐकण्याचे आणि सोंड
+                अनुकूलतेचे प्रतीक मानले जाते.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🙏 विघ्नहर्ता</h3>
+            <p>
+                गणपतीला विघ्नहर्ता म्हटले जाते.
+                भक्तीने गणेशाचे स्मरण केल्याने
+                सकारात्मकता आणि नव्या सुरुवातीची
+                प्रेरणा मिळते.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🌊 विसर्जन</h3>
+            <p>
+                गणेश विसर्जनातून आगमन आणि निरोप
+                या जीवनचक्राची आठवण होते.
+                भक्त प्रेमाने बाप्पाला निरोप देतात.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- AARTI -->
+<section id="aarti">
+
+    <h2 class="section-title">
+        🪔 आरती आणि स्तोत्र
+    </h2>
+
+    <p class="section-lead">
+        खालील button वर click करा.
+        आरती याच website वर खाली उघडेल. 🙏
+    </p>
+
+    <div class="aarti-buttons">
+
+        <button
+            type="button"
+            class="btn"
+            onclick="showAarti('ganpati')">
+            🙏 गणपतीची आरती
+        </button>
+
+        <button
+            type="button"
+            class="btn"
+            onclick="showAarti('mahadev')">
+            🔱 महादेवाची आरती
+        </button>
+
+        <button
+            type="button"
+            class="btn"
+            onclick="showAarti('hanuman')">
+            🚩 हनुमान चालीसा
+        </button>
+
+        <button
+            type="button"
+            class="btn"
+            onclick="showAarti('vishnu')">
+            🪔 विष्णू आरती
+        </button>
+
+    </div>
+
+
+    <!-- GANPATI AARTI -->
+    <div id="aarti-ganpati" class="aarti-display">
+
+        <h3 class="aarti-title">
+            🙏 गणपतीची आरती
+        </h3>
+
+        <div class="aarti-text">
+
+सुखकर्ता दुःखहर्ता वार्ता विघ्नाची ।
+नुरवी पुरवी प्रेम कृपा जयाची ॥
+
+सर्वांगी सुंदर उटी शेंदुराची ।
+कंठी झळके माळ मुक्ताफळांची ॥
+
+जय देव जय देव जय मंगलमूर्ती ।
+दर्शनमात्रे मनःकामना पूर्ती ॥
+
+रत्नखचित फरा तुज गौरीकुमरा ।
+चंदनाची उटी कुंकुमकेशरा ॥
+
+हिरे जडित मुकुट शोभतो बरा ।
+रुणझुणती नूपुरे चरणी घागरिया ॥
+
+जय देव जय देव जय मंगलमूर्ती ।
+दर्शनमात्रे मनःकामना पूर्ती ॥
+
+लंबोदर पीतांबर फणिवरबंधना ।
+सरळ सोंड वक्रतुंड त्रिनयना ॥
+
+दास रामाचा वाट पाहे सदना ।
+संकटी पावावे निर्वाणी रक्षावे सुरवरवंदना ॥
+
+जय देव जय देव जय मंगलमूर्ती ।
+दर्शनमात्रे मनःकामना पूर्ती ॥
+
+        </div>
+
+        <button
+            type="button"
+            class="btn close-aarti"
+            onclick="closeAarti()">
+            ✕ आरती बंद करा
+        </button>
+
+    </div>
+
+
+    <!-- MAHADEV AARTI -->
+    <div id="aarti-mahadev" class="aarti-display">
+
+        <h3 class="aarti-title">
+            🔱 महादेवाची आरती
+        </h3>
+
+        <div class="aarti-text">
+
+जय शिव ओंकारा, ॐ जय शिव ओंकारा ।
+ब्रह्मा विष्णु सदाशिव, अर्धांगी धारा ॥
+
+ॐ जय शिव ओंकारा ॥
+
+एकानन चतुरानन पंचानन राजे ।
+हंसासन गरुडासन वृषवाहन साजे ॥
+
+ॐ जय शिव ओंकारा ॥
+
+दो भुज चार चतुर्भुज दस भुज अति सोहे ।
+त्रिगुण रूप निरखता त्रिभुवन जन मोहे ॥
+
+ॐ जय शिव ओंकारा ॥
+
+अक्षमाला वनमाला मुण्डमाला धारी ।
+चंदन मृगमद सोहै भाले शशिधारी ॥
+
+ॐ जय शिव ओंकारा ॥
+
+कर के मध्य कमंडलु चक्र त्रिशूल धर्ता ।
+जगकर्ता जगभर्ता जगसंहारकर्ता ॥
+
+ॐ जय शिव ओंकारा ॥
+
+        </div>
+
+        <button
+            type="button"
+            class="btn close-aarti"
+            onclick="closeAarti()">
+            ✕ आरती बंद करा
+        </button>
+
+    </div>
+
+
+    <!-- HANUMAN CHALISA -->
+    <div id="aarti-hanuman" class="aarti-display">
+
+        <h3 class="aarti-title">
+            🚩 श्री हनुमान चालीसा
+        </h3>
+
+        <div class="aarti-text">
+
+श्रीगुरु चरन सरोज रज, निज मनु मुकुरु सुधारि ।
+बरनऊँ रघुबर बिमल जसु, जो दायकु फल चारि ॥
+
+बुद्धिहीन तनु जानिके, सुमिरौं पवन-कुमार ।
+बल बुधि विद्या देहु मोहिं, हरहु कलेस बिकार ॥
+
+जय हनुमान ज्ञान गुन सागर ।
+जय कपीस तिहुँ लोक उजागर ॥
+
+राम दूत अतुलित बल धामा ।
+अंजनि-पुत्र पवनसुत नामा ॥
+
+महाबीर बिक्रम बजरंगी ।
+कुमति निवार सुमति के संगी ॥
+
+कंचन बरन बिराज सुबेसा ।
+कानन कुंडल कुंचित केसा ॥
+
+हाथ बज्र औ ध्वजा बिराजै ।
+काँधे मूँज जनेऊ साजै ॥
+
+शंकर सुवन केसरी नंदन ।
+तेज प्रताप महा जग वंदन ॥
+
+विद्यावान गुनी अति चातुर ।
+राम काज करिबे को आतुर ॥
+
+प्रभु चरित्र सुनिबे को रसिया ।
+राम लखन सीता मन बसिया ॥
+
+सूक्ष्म रूप धरि सियहिं दिखावा ।
+बिकट रूप धरि लंक जरावा ॥
+
+भीम रूप धरि असुर संहारे ।
+रामचंद्र के काज सँवारे ॥
+
+लाय सजीवन लखन जियाए ।
+श्रीरघुबीर हरषि उर लाए ॥
+
+रघुपति कीन्ही बहुत बड़ाई ।
+तुम मम प्रिय भरतहि सम भाई ॥
+
+सहस बदन तुम्हरो जस गावैं ।
+अस कहि श्रीपति कंठ लगावैं ॥
+
+सनकादिक ब्रह्मादि मुनीसा ।
+नारद सारद सहित अहीसा ॥
+
+जम कुबेर दिगपाल जहाँ ते ।
+कवि कोविद कहि सके कहाँ ते ॥
+
+तुम उपकार सुग्रीवहिं कीन्हा ।
+राम मिलाय राज पद दीन्हा ॥
+
+तुम्हरो मंत्र बिभीषण माना ।
+लंकेश्वर भए सब जग जाना ॥
+
+जुग सहस्र योजन पर भानू ।
+लील्यो ताहि मधुर फल जानू ॥
+
+प्रभु मुद्रिका मेलि मुख माहीं ।
+जलधि लाँघि गए अचरज नाहीं ॥
+
+दुर्गम काज जगत के जेते ।
+सुगम अनुग्रह तुम्हरे तेते ॥
+
+राम दुआरे तुम रखवारे ।
+होत न आज्ञा बिनु पैसारे ॥
+
+सब सुख लहै तुम्हारी सरना ।
+तुम रक्षक काहू को डरना ॥
+
+आपन तेज सम्हारो आपै ।
+तीनों लोक हाँक तें काँपै ॥
+
+भूत पिशाच निकट नहिं आवै ।
+महाबीर जब नाम सुनावै ॥
+
+नासै रोग हरै सब पीरा ।
+जपत निरंतर हनुमत बीरा ॥
+
+संकट तें हनुमान छुड़ावै ।
+मन क्रम बचन ध्यान जो लावै ॥
+
+सब पर राम तपस्वी राजा ।
+तिन के काज सकल तुम साजा ॥
+
+और मनोरथ जो कोई लावै ।
+सोइ अमित जीवन फल पावै ॥
+
+चारों जुग परताप तुम्हारा ।
+है परसिद्ध जगत उजियारा ॥
+
+साधु संत के तुम रखवारे ।
+असुर निकंदन राम दुलारे ॥
+
+अष्ट सिद्धि नौ निधि के दाता ।
+अस बर दीन जानकी माता ॥
+
+राम रसायन तुम्हरे पासा ।
+सदा रहो रघुपति के दासा ॥
+
+तुम्हरे भजन राम को पावै ।
+जनम जनम के दुख बिसरावै ॥
+
+अंतकाल रघुवर पुर जाई ।
+जहाँ जन्म हरि-भक्त कहाई ॥
+
+और देवता चित्त न धरई ।
+हनुमत सेइ सर्व सुख करई ॥
+
+संकट कटै मिटै सब पीरा ।
+जो सुमिरै हनुमत बलबीरा ॥
+
+जय जय जय हनुमान गोसाईं ।
+कृपा करहु गुरुदेव की नाईं ॥
+
+जो सत बार पाठ कर कोई ।
+छूटहि बंदि महा सुख होई ॥
+
+जो यह पढ़ै हनुमान चालीसा ।
+होय सिद्धि साखी गौरीसा ॥
+
+तुलसीदास सदा हरि चेरा ।
+कीजै नाथ हृदय महँ डेरा ॥
+
+पवनतनय संकट हरन, मंगल मूरति रूप ।
+राम लखन सीता सहित, हृदय बसहु सुर भूप ॥
+
+        </div>
+
+        <button
+            type="button"
+            class="btn close-aarti"
+            onclick="closeAarti()">
+            ✕ चालीसा बंद करा
+        </button>
+
+    </div>
+
+
+    <!-- VISHNU AARTI -->
+    <div id="aarti-vishnu" class="aarti-display">
+
+        <h3 class="aarti-title">
+            🪔 श्री विष्णू आरती
+        </h3>
+
+        <div class="aarti-text">
+
+ॐ जय जगदीश हरे ।
+स्वामी जय जगदीश हरे ॥
+
+भक्त जनों के संकट,
+दास जनों के संकट,
+क्षण में दूर करे ॥
+
+ॐ जय जगदीश हरे ॥
+
+जो ध्यावे फल पावे,
+दुःख बिनसे मन का ॥
+
+सुख सम्पत्ति घर आवे,
+कष्ट मिटे तन का ॥
+
+ॐ जय जगदीश हरे ॥
+
+मात-पिता तुम मेरे,
+शरण गहूँ मैं किसकी ॥
+
+तुम बिन और न दूजा,
+आस करूँ मैं जिसकी ॥
+
+ॐ जय जगदीश हरे ॥
+
+तुम पूरण परमात्मा,
+तुम अंतर्यामी ॥
+
+पारब्रह्म परमेश्वर,
+तुम सबके स्वामी ॥
+
+ॐ जय जगदीश हरे ॥
+
+दीनबंधु दुःखहर्ता,
+ठाकुर तुम मेरे ॥
+
+अपने हाथ उठाओ,
+द्वार पड़ा तेरे ॥
+
+ॐ जय जगदीश हरे ॥
+
+विषय विकार मिटाओ,
+पाप हरो देवा ॥
+
+श्रद्धा भक्ति बढ़ाओ,
+संतों की सेवा ॥
+
+ॐ जय जगदीश हरे ॥
+
+        </div>
+
+        <button
+            type="button"
+            class="btn close-aarti"
+            onclick="closeAarti()">
+            ✕ आरती बंद करा
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- MEMBERS -->
+<section id="members">
+
+    <h2 class="section-title">
+        👥 मंडळातील सदस्य
+    </h2>
+
+    <p class="section-lead">
+        आपल्या मंडळातील सर्व सदस्यांना
+        मनःपूर्वक शुभेच्छा. 🚩
+    </p>
+
+    <div class="members">
+
+        <div class="member">✦ Datta Jadhav</div>
+        <div class="member">✦ Rutuja Jadhav</div>
+        <div class="member">✦ Avinash Jadhav</div>
+        <div class="member">✦ Siddant Jadhav</div>
+        <div class="member">✦ Gajanan Jadhav</div>
+
+        <div class="member">✦ LALESH KOKAT</div>
+        <div class="member">✦ Shivraj Kokat</div>
+        <div class="member">✦ Nikhil Kokat</div>
+
+        <div class="member">✦ Mayur Patil</div>
+        <div class="member">✦ Akshay Gore</div>
+        <div class="member">✦ Sanjay Wayal</div>
+        <div class="member">✦ Nitin Gavate</div>
+
+        <div class="member">✦ Jyoti Kokat</div>
+        <div class="member">✦ Snehal</div>
+        <div class="member">✦ Aruna</div>
+        <div class="member">✦ Ankita</div>
+        <div class="member">✦ Nita</div>
+        <div class="member">✦ Pratiksha</div>
+
+        <div class="member">✦ Prashant Mahajan</div>
+        <div class="member">✦ Vijay</div>
+        <div class="member">✦ Pawan</div>
+        <div class="member">✦ Yash</div>
+        <div class="member">✦ Shubham</div>
+        <div class="member">✦ Kartik</div>
+        <div class="member">✦ Bharat</div>
+        <div class="member">✦ Prashant</div>
+
+    </div>
+
+</section>
+
+
+<!-- DARSHAN VIDEO -->
+<section id="darshan">
+
+    <h2 class="section-title">
+        ✨ गणपती बाप्पांचे दर्शन
+    </h2>
+
+    <p class="section-lead">
+        श्री गणपती बाप्पांचे सुंदर दर्शन 🙏🚩
+    </p>
+
+    <div class="video-box">
+
+        <video
+            controls
+            autoplay
+            muted
+            loop
+            playsinline
+            poster="images/ganpati.jpg">
+
+            <source
+                src="images/ganpati-darshan.mp4"
+                type="video/mp4">
+
+            तुमचा browser हा video support करत नाही.
+
+        </video>
+
+    </div>
+
+</section>
+
+
+<!-- SIGNATURE -->
+<section class="signature-section">
+
+    <h2 class="section-title">
+        ❤️ प्रेमपूर्वक
+    </h2>
+
+    <p class="section-lead">
+        गणपती बाप्पा मोरया !
+        पुढच्या वर्षी लवकर या ! 🚩
+    </p>
+
+    <img
+        src="images/signature.jpg"
+        class="signature-image"
+        alt="Signature">
+
+    <strong style="color:#ffd66b;font-size:18px;">
+        🚩 JustByte Coder चा राजा 🚩
+    </strong>
+
+</section>
+
+
+<footer>
+
+    © JustByte Coder चा राजा
+    <br>
+    श्री गणपती बाप्पा मोरया 🙏🚩
+
+</footer>
+
+
+<script>
+
+/* =========================================
+   AARTI - SIMPLE WORKING SYSTEM
+========================================= */
+
+function showAarti(name){
+
+    /* आधी सर्व Aarti hide */
+    var allAartis =
+        document.querySelectorAll(".aarti-display");
+
+    allAartis.forEach(function(aarti){
+
+        aarti.classList.remove("active");
+
+    });
+
+
+    /* निवडलेली Aarti show */
+    var selected =
+        document.getElementById("aarti-" + name);
+
+    if(selected){
+
+        selected.classList.add("active");
+
+        selected.scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+
+    }
+
+}
+
+
+function closeAarti(){
+
+    var allAartis =
+        document.querySelectorAll(".aarti-display");
+
+    allAartis.forEach(function(aarti){
+
+        aarti.classList.remove("active");
+
+    });
+
+}
+
+
+/* =========================================
+   STAR BACKGROUND
+========================================= */
+
+var canvas =
+    document.getElementById("stars");
+
+var ctx =
+    canvas.getContext("2d");
+
+var stars = [];
+
+
+function resizeStars(){
+
+    canvas.width =
+        window.innerWidth;
+
+    canvas.height =
+        window.innerHeight;
+
+
+    stars = [];
+
+    for(
+        var i = 0;
+        i < 120;
+        i++
+    ){
+
+        stars.push({
+
+            x:
+                Math.random() *
+                canvas.width,
+
+            y:
+                Math.random() *
+                canvas.height,
+
+            r:
+                Math.random() * 1.5 + .2,
+
+            alpha:
+                Math.random()
+
+        });
+
+    }
+
+}
+
+
+function drawStars(){
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    stars.forEach(function(star){
+
+        ctx.beginPath();
+
+        ctx.arc(
+            star.x,
+            star.y,
+            star.r,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle =
+            "rgba(255,214,107," +
+            star.alpha +
+            ")";
+
+        ctx.fill();
+
+    });
+
+
+    requestAnimationFrame(drawStars);
+
+}
+
+
+window.addEventListener(
+    "resize",
+    resizeStars
+);
+
+
+resizeStars();
+
+drawStars();
+
+</script>
+
+</body>
+</html>
